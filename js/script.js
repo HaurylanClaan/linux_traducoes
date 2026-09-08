@@ -21,7 +21,8 @@ function criarCard(jogo) {
     card.dataset.name = (jogo.nome || "").toLowerCase();
 
     const capa = jogo.capa || "img/jogos/cover-placeholder.svg";
-    const linkDownload = jogo.download || "#";
+    const slug = encodeURIComponent(jogo.slug || "");
+    const linkDetalhes = `jogos/jogo.html?slug=${slug}`;
 
     card.innerHTML = `
         <img
@@ -44,13 +45,8 @@ function criarCard(jogo) {
 
             <div class="tag-list">${construirTags(jogo)}</div>
 
-            <a
-                class="download"
-                href="${linkDownload}"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                ⬇ Baixar tradução
+            <a class="download" href="${linkDetalhes}">
+                Ver tradução
             </a>
         </div>
     `;

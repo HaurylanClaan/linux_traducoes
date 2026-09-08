@@ -189,6 +189,114 @@ nav a:hover {
     background: #bae6fd;
 }
 
+.game-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.back-link {
+    display: inline-block;
+    color: #7dd3fc;
+    text-decoration: none;
+    margin-bottom: 25px;
+}
+
+.back-link:hover {
+    color: #bae6fd;
+}
+
+.game-detail {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+    gap: 35px;
+    background: #171a21;
+    border: 1px solid #2a2f3a;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.game-detail-cover {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    max-height: 460px;
+    object-fit: cover;
+    background: #0f1115;
+    border-radius: 6px;
+}
+
+.game-detail-content h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.details-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.detail-item {
+    background: #222936;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.detail-item dt {
+    color: #aeb4c0;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.detail-item dd {
+    color: #ffffff;
+}
+
+.translation-info {
+    border-top: 1px solid #2a2f3a;
+    padding-top: 20px;
+    margin-bottom: 25px;
+}
+
+.translation-info h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.translation-info p,
+.message-panel p {
+    color: #aeb4c0;
+    line-height: 1.7;
+}
+
+.detail-download {
+    max-width: 280px;
+}
+
+.message-panel {
+    background: #171a21;
+    border: 1px solid #2a2f3a;
+    border-radius: 10px;
+    padding: 35px;
+    text-align: center;
+}
+
+.message-panel h1 {
+    margin-bottom: 12px;
+}
+
+.message-panel .back-link {
+    margin: 25px 0 0;
+}
+
+.loading-state,
+.empty-state {
+    color: #aeb4c0;
+    padding: 20px 0;
+}
+
 footer {
     margin-top: 70px;
     padding: 30px 20px;
@@ -208,5 +316,22 @@ footer {
 
     .hero h1 {
         font-size: 36px;
+    }
+
+    .game-detail {
+        grid-template-columns: 1fr;
+        padding: 18px;
+    }
+
+    .game-detail-content h1 {
+        font-size: 32px;
+    }
+
+    .details-list {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-download {
+        max-width: none;
     }
 }
