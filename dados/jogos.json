@@ -1,0 +1,32 @@
+[
+  {
+    "nome": "Jogo Exemplo",
+    "slug": "jogo-exemplo",
+    "descricao": "Tradução Português-Brasil preparada para uso em Linux com empacotamento em AppImage.",
+    "idioma": "Português-Brasil",
+    "versao": "1.0.0",
+    "formato": "AppImage",
+    "tamanho": "850 MB",
+    "linux": true,
+    "steamDeck": true,
+    "dataAtualizacao": "2026-09-08",
+    "download": "https://example.com/download/jogo-exemplo.AppImage",
+    "capa": "img/jogos/cover-placeholder.svg",
+    "tags": ["🇧🇷 PT-BR", "🐧 Linux", "📦 AppImage", "✅ Compatível"]
+  },
+  {
+    "nome": "Another Game",
+    "slug": "another-game",
+    "descricao": "Tradução em português para uso em ambientes Linux e compatíveis com Steam Deck.",
+    "idioma": "Português-Brasil",
+    "versao": "0.9.2",
+    "formato": "AppImage",
+    "tamanho": "620 MB",
+    "linux": true,
+    "steamDeck": false,
+    "dataAtualizacao": "2026-09-08",
+    "download": "https://example.com/download/another-game.AppImage",
+    "capa": "img/jogos/cover-placeholder.svg",
+    "tags": ["🇧🇷 PT-BR", "🐧 Linux", "🎮 Steam"]
+  }
+]

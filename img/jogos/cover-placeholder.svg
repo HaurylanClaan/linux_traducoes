@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Capa de exemplo">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f1115"/>
+      <stop offset="100%" stop-color="#171a21"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect x="28" y="30" width="584" height="300" rx="18" fill="#1c2330" stroke="#2a2f3a"/>
+  <circle cx="190" cy="180" r="74" fill="#7dd3fc" opacity="0.3"/>
+  <path d="M141 194 L190 138 L239 194 L190 250 Z" fill="#7dd3fc"/>
+  <text x="320" y="168" text-anchor="middle" fill="#ffffff" font-size="38" font-family="Arial, Helvetica, sans-serif" font-weight="700">Linux</text>
+  <text x="320" y="214" text-anchor="middle" fill="#aeb4c0" font-size="20" font-family="Arial, Helvetica, sans-serif">Traduções</text>
+  <text x="320" y="270" text-anchor="middle" fill="#7dd3fc" font-size="16" font-family="Arial, Helvetica, sans-serif">Jogo em destaque</text>
+</svg>
