@@ -1,3 +1,16 @@
+:root {
+    --background: #0a0d0b;
+    --surface: #111613;
+    --surface-raised: #171d19;
+    --border: #29332c;
+    --border-strong: #3d5142;
+    --green: #69d38a;
+    --green-bright: #9af0b1;
+    --text: #f2f7f3;
+    --muted: #a7b3aa;
+    --muted-dark: #718077;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,8 +19,9 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #0f1115;
-    color: #ffffff;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.5;
 }
 
 img {
@@ -16,9 +30,12 @@ img {
 }
 
 header {
-    background: #171a21;
-    border-bottom: 1px solid #2a2f3a;
-    padding: 20px;
+    background: rgba(10, 13, 11, 0.96);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .header-content {
@@ -33,36 +50,74 @@ header {
 .logo {
     font-size: 24px;
     font-weight: bold;
+    letter-spacing: -0.02em;
+}
+
+.logo-mark {
+    color: var(--green);
+    font-family: monospace;
+    font-size: 18px;
+    margin-right: 5px;
 }
 
 .logo span {
-    color: #7dd3fc;
+    color: var(--green);
 }
 
 nav a {
-    color: #ffffff;
+    color: var(--muted);
     text-decoration: none;
     margin-left: 20px;
+    transition: color 0.2s ease;
 }
 
-nav a:hover {
-    color: #7dd3fc;
+nav a:hover,
+nav a.active {
+    color: var(--green-bright);
+}
+
+nav a.active {
+    position: relative;
+}
+
+nav a.active::after {
+    background: var(--green);
+    bottom: -8px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 100%;
 }
 
 .hero {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 70px 20px 50px;
+    padding: 92px 20px 68px;
     text-align: center;
 }
 
+.eyebrow {
+    color: var(--green);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+}
+
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
+    font-size: clamp(38px, 6vw, 62px);
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: var(--green);
 }
 
 .hero p {
-    color: #aeb4c0;
+    color: var(--muted);
     font-size: 18px;
     margin-bottom: 30px;
 }
@@ -72,15 +127,16 @@ nav a:hover {
     max-width: 600px;
     padding: 15px 20px;
     border-radius: 8px;
-    border: 1px solid #343a46;
-    background: #171a21;
-    color: white;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    color: var(--text);
     font-size: 16px;
     outline: none;
 }
 
 .search:focus {
-    border-color: #7dd3fc;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(105, 211, 138, 0.1);
 }
 
 .games {
@@ -93,6 +149,12 @@ nav a:hover {
     margin-bottom: 25px;
 }
 
+.section-copy {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 820px;
+}
+
 .game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -100,8 +162,8 @@ nav a:hover {
 }
 
 .game-card {
-    background: #171a21;
-    border: 1px solid #2a2f3a;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.2s, border-color 0.2s;
@@ -109,15 +171,16 @@ nav a:hover {
 
 .game-card:hover {
     transform: translateY(-3px);
-    border-color: #7dd3fc;
+    border-color: var(--green);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .game-cover {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    background: #0f1115;
-    border-bottom: 1px solid #2a2f3a;
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
 }
 
 .game-content {
@@ -125,7 +188,7 @@ nav a:hover {
 }
 
 .game-label {
-    color: #7dd3fc;
+    color: var(--green);
     font-size: 12px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -138,7 +201,7 @@ nav a:hover {
 }
 
 .game-description {
-    color: #aeb4c0;
+    color: var(--muted);
     line-height: 1.5;
     margin-bottom: 18px;
 }
@@ -152,8 +215,8 @@ nav a:hover {
 
 .meta-item {
     display: inline-block;
-    background: #222936;
-    color: #dfe7f1;
+    background: var(--surface-raised);
+    color: #d8e4da;
     font-size: 12px;
     border-radius: 999px;
     padding: 6px 10px;
@@ -165,8 +228,8 @@ nav a:hover {
 
 .tag {
     display: inline-block;
-    background: #222936;
-    color: #7dd3fc;
+    background: rgba(105, 211, 138, 0.1);
+    color: var(--green-bright);
     padding: 6px 10px;
     border-radius: 5px;
     font-size: 13px;
@@ -177,8 +240,8 @@ nav a:hover {
 .download {
     display: block;
     text-align: center;
-    background: #7dd3fc;
-    color: #0f1115;
+    background: var(--green);
+    color: #08100b;
     padding: 12px;
     border-radius: 6px;
     text-decoration: none;
@@ -186,7 +249,64 @@ nav a:hover {
 }
 
 .download:hover {
-    background: #bae6fd;
+    background: var(--green-bright);
+}
+
+.info-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 20px;
+}
+
+.credit-panel {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-left: 3px solid var(--green);
+    border-radius: 8px;
+    padding: 28px;
+}
+
+.credit-panel h2,
+.section-heading h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.credit-panel p:last-child,
+.step-card p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.section-heading {
+    margin-bottom: 24px;
+}
+
+.steps-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.step-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px;
+}
+
+.step-number {
+    color: var(--green);
+    display: block;
+    font-family: monospace;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 22px;
+}
+
+.step-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
 }
 
 .game-page {
@@ -197,21 +317,21 @@ nav a:hover {
 
 .back-link {
     display: inline-block;
-    color: #7dd3fc;
+    color: var(--green);
     text-decoration: none;
     margin-bottom: 25px;
 }
 
 .back-link:hover {
-    color: #bae6fd;
+    color: var(--green-bright);
 }
 
 .game-detail {
     display: grid;
     grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
     gap: 35px;
-    background: #171a21;
-    border: 1px solid #2a2f3a;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
     padding: 25px;
 }
@@ -222,7 +342,7 @@ nav a:hover {
     min-height: 260px;
     max-height: 460px;
     object-fit: cover;
-    background: #0f1115;
+    background: var(--background);
     border-radius: 6px;
 }
 
@@ -239,13 +359,13 @@ nav a:hover {
 }
 
 .detail-item {
-    background: #222936;
+    background: var(--surface-raised);
     border-radius: 6px;
     padding: 12px;
 }
 
 .detail-item dt {
-    color: #aeb4c0;
+    color: var(--muted);
     font-size: 12px;
     margin-bottom: 5px;
 }
@@ -255,7 +375,7 @@ nav a:hover {
 }
 
 .translation-info {
-    border-top: 1px solid #2a2f3a;
+    border-top: 1px solid var(--border);
     padding-top: 20px;
     margin-bottom: 25px;
 }
@@ -267,7 +387,7 @@ nav a:hover {
 
 .translation-info p,
 .message-panel p {
-    color: #aeb4c0;
+    color: var(--muted);
     line-height: 1.7;
 }
 
@@ -276,8 +396,8 @@ nav a:hover {
 }
 
 .message-panel {
-    background: #171a21;
-    border: 1px solid #2a2f3a;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
     padding: 35px;
     text-align: center;
@@ -293,7 +413,7 @@ nav a:hover {
 
 .loading-state,
 .empty-state {
-    color: #aeb4c0;
+    color: var(--muted);
     padding: 20px 0;
 }
 
@@ -301,8 +421,38 @@ footer {
     margin-top: 70px;
     padding: 30px 20px;
     text-align: center;
-    color: #777f8c;
-    border-top: 1px solid #2a2f3a;
+    color: var(--muted-dark);
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    display: grid;
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+.footer-content strong {
+    color: var(--text);
+    font-size: 18px;
+}
+
+.footer-nav {
+    margin: 6px 0;
+}
+
+.footer-nav a {
+    margin: 0 18px 0 0;
+}
+
+.footer-note {
+    font-size: 13px;
+    max-width: 700px;
+}
+
+.footer-copy {
+    color: var(--muted-dark);
+    font-size: 12px;
 }
 
 @media (max-width: 600px) {
@@ -316,6 +466,15 @@ footer {
 
     .hero h1 {
         font-size: 36px;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-nav a {
+        display: inline-block;
+        margin-bottom: 8px;
     }
 
     .game-detail {
