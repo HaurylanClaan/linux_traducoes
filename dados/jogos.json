@@ -1,7 +1,7 @@
 [
   {
-    "nome": "CHRONO TRIGGER",
-    "slug": "CHRONO TRIGGER",
+    "nome": "Chrono Trigger",
+    "slug": "Chrono Trigger",
     "descricao": "O clássico RPG atemporal está de volta, repleto de melhorias! Viaje para um passado esquecido, um futuro distante e até o fim dos tempos. Uma grande aventura para salvar o planeta começa agora…",
     "idioma": "Português-Brasil",
     "versao": "1.0.0",
@@ -11,8 +11,8 @@
     "steamDeck": false,
     "dataAtualizacao": "2026-09-08",
     "status": "Em testes",
-    "informacoes": "Creditos para a Central de traduções. Para realizar a tradução do CHRONO TRIGGER: Rode o app image como um programa e selecione a pasta do jogo para realizar a instalação.",
-    "download": "https://github.com/HaurylanClaan/linux_traducoes/releases/latest/download/Chrono_Trigger_Traducao_PTBR.AppImage",
+    "informacoes": "Para realizar a tradução do CHRONO TRIGGER: Rode o app image como um programa e selecione a pasta do jogo para realizar a instalação.",
+    "download": "https://github.com/HaurylanClaan/linux_traducoes/releases/download/v1.0.0/Chrono_Trigger_Traducao_PTBR.AppImage",
     "capa": "img/jogos/chrono_trigger.webp",
     "tags": ["🇧🇷 PT-BR", "🎮 Steam"]
   },
@@ -23,14 +23,14 @@
     "idioma": "Português-Brasil",
     "versao": "1.0.0",
     "formato": "AppImage",
-    "tamanho": "??? MB",
+    "tamanho": "26,4 MB",
     "linux": true,
     "steamDeck": false,
-    "dataAtualizacao": "2026-09-08",
+    "dataAtualizacao": "2026-09-10",
     "status": "Em testes",
-    "informacoes": "Para executar a tradução do Fear & Hunger 2: Termina, rode o app image como programa e selecione a pasta do jogo para realizar a instalação.",
-    "download": "https://example.com/download/another-game.AppImage",
-    "capa": "img/jogos/cover-placeholder.svg",
+    "informacoes": "Para executar a tradução do Fear & Hunger 2: Termina, rode o app image como programa para realizar a instalação.",
+    "download": "https://github.com/HaurylanClaan/linux_traducoes/releases/download/fear-and-hunger-termina-v1.0.0/FH2_Termina_Traducao_PTBR.AppImage",
+    "capa": "img/jogos/IXD3OG.png",
     "tags": ["🇧🇷 PT-BR", "🎮 Steam"]
   }
 ]
