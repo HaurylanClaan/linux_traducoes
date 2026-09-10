@@ -2,7 +2,7 @@
 
 > Porte e adaptação de traduções de jogos de PC para Linux.
 
-O **Linux Traduções** é um projeto comunitário criado para facilitar o uso de traduções de jogos no ambiente Linux. A proposta é organizar informações, créditos e pacotes de tradução em um catálogo simples, leve e compatível com GitHub Pages.
+O **Linux Traduções** é um projeto criado para facilitar o uso de traduções de jogos no ambiente Linux. A proposta é organizar informações, créditos e pacotes de tradução em um catálogo simples, leve e compatível com GitHub Pages.
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-69d38a?style=flat-square)
 ![Plataforma](https://img.shields.io/badge/plataforma-Linux-69d38a?style=flat-square)
@@ -59,9 +59,9 @@ As informações dos jogos ficam em `dados/jogos.json`. A página inicial e `jog
 - JavaScript
 - JSON
 - GitHub Pages
-- GitHub Releases para futuros pacotes
+- GitHub Releases para pacotes
 
-Não há backend, banco de dados ou frameworks externos. A estrutura foi pensada para ser simples, rápida e fácil de manter.
+Não há backend, banco de dados ou frameworks externos. A estrutura foi pensada para ser simples, rápida e fácil de manter. (sou pobre)
 
 ## Contribuição
 
