@@ -28,7 +28,7 @@
     "steamDeck": false,
     "dataAtualizacao": "2026-09-08",
     "status": "Em testes",
-    "informacoes": "Para executar a tradução do Fear & Hunger 2: Termina, rode o app image e selecione a pasta do jogo para realizar a instalação.",
+    "informacoes": "Para executar a tradução do Fear & Hunger 2: Termina, rode o app image como programa e selecione a pasta do jogo para realizar a instalação.",
     "download": "https://example.com/download/another-game.AppImage",
     "capa": "img/jogos/cover-placeholder.svg",
     "tags": ["🇧🇷 PT-BR", "🎮 Steam"]
