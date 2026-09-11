@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Linux Traduções | Portes para Linux</title>
-
-    <meta name="description"
-          content="Porte e adaptação de traduções de jogos de PC para Linux.">
+    <meta name="description" content="Porte e adaptação de traduções de jogos de PC para Linux.">
+    <meta name="google-site-verification" content="qwKuwFbZtDAgy5DpODDdMkBwyN-ce8wuxSKkGM_zLjA" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-
 <header>
     <div class="header-content">
-
         <div class="logo" aria-label="Linux Traduções">
             <span class="logo-mark">&gt;_</span> Linux <span>Traduções</span>
         </div>
@@ -27,90 +26,73 @@
             <a href="#sobre">Sobre</a>
             <a href="https://github.com/haurylan/linux_traducoes" target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
-
     </div>
 </header>
 
-
 <main>
+    <section class="hero">
+        <h1>Traduções para <span>Linux</span></h1>
+        <p>Traduções de jogos de PC portadas para o Linux.</p>
 
-<section class="hero">
+        <input
+            type="text"
+            class="search"
+            id="search"
+            placeholder="🔎 Pesquisar jogo..."
+        >
+    </section>
 
-    <h1>Traduções para <span>Linux</span></h1>
+    <section class="games" id="jogos">
+        <h2>Traduções disponíveis</h2>
+        <div class="game-grid" id="gameGrid" aria-live="polite"></div>
+    </section>
 
-    <p>
-        Traduções de jogos de PC portadas para o Linux.
-    </p>
+    <section class="games" id="sobre">
+        <p class="eyebrow">SOBRE O PROJETO</p>
+        <h2>Sobre o projeto</h2>
 
-    <input
-        type="text"
-        class="search"
-        id="search"
-        placeholder="🔎 Pesquisar jogo..."
-    >
-
-</section>
-
-
-<section class="games" id="jogos">
-
-    <h2>Traduções disponíveis</h2>
-
-    <div class="game-grid" id="gameGrid" aria-live="polite"></div>
-
-</section>
-
-
-<section class="games" id="sobre">
-
-    <p class="eyebrow">SOBRE O PROJETO</p>
-    <h2>Sobre o projeto</h2>
-
-    <p class="section-copy">
-        O Linux Traduções é um projeto dedicado a portar e adaptar traduções de jogos de PC para o ambiente Linux.
-        O objetivo é facilitar o acesso da comunidade Linux a traduções originalmente desenvolvidas para outras plataformas.
-        Aqui são disponibilizados apenas arquivos e pacotes relacionados à tradução, respeitando os direitos, créditos e permissões aplicáveis a cada projeto.
-    </p>
-
-</section>
-
-<section class="info-section" id="creditos">
-    <div class="credit-panel">
-        <p class="eyebrow">TRANSPARÊNCIA</p>
-        <p>
-            Eu apenas porto e adapto traduções existentes para Linux.
-            Todo crédito pela tradução original pertence aos seus respectivos tradutores, autores e equipes.
+        <p class="section-copy">
+            O Linux Traduções é um projeto dedicado a portar e adaptar traduções de jogos de PC para o ambiente Linux.
+            O objetivo é facilitar o acesso da comunidade Linux a traduções originalmente desenvolvidas para outras plataformas.
+            Aqui são disponibilizados apenas arquivos e pacotes relacionados à tradução, respeitando os direitos, créditos e permissões aplicáveis a cada projeto.
         </p>
-    </div>
-</section>
+    </section>
 
-<section class="info-section" id="como-funciona">
-    <div class="section-heading">
-        <p class="eyebrow">GUIA RÁPIDO</p>
-        <h2>Como funciona</h2>
-    </div>
+    <section class="info-section" id="creditos">
+        <div class="credit-panel">
+            <p class="eyebrow">TRANSPARÊNCIA</p>
+            <p>
+                Eu apenas porto e adapto traduções existentes para Linux.
+                Todo crédito pela tradução original pertence aos seus respectivos tradutores, autores e equipes.
+            </p>
+        </div>
+    </section>
 
-    <div class="steps-grid">
-        <article class="step-card">
-            <span class="step-number">01</span>
-            <h3>Escolha uma tradução</h3>
-            <p>Encontre no catálogo o jogo que você procura.</p>
-        </article>
-        <article class="step-card">
-            <span class="step-number">02</span>
-            <h3>Confira os detalhes</h3>
-            <p>Veja informações de compatibilidade, versão e créditos.</p>
-        </article>
-        <article class="step-card">
-            <span class="step-number">03</span>
-            <h3>Instale no Linux</h3>
-            <p>Baixe a versão preparada e siga as instruções do projeto.</p>
-        </article>
-    </div>
-</section>
+    <section class="info-section" id="como-funciona">
+        <div class="section-heading">
+            <p class="eyebrow">GUIA RÁPIDO</p>
+            <h2>Como funciona</h2>
+        </div>
 
+        <div class="steps-grid">
+            <article class="step-card">
+                <span class="step-number">01</span>
+                <h3>Escolha uma tradução</h3>
+                <p>Encontre no catálogo o jogo que você procura.</p>
+            </article>
+            <article class="step-card">
+                <span class="step-number">02</span>
+                <h3>Confira os detalhes</h3>
+                <p>Veja informações de compatibilidade, versão e créditos.</p>
+            </article>
+            <article class="step-card">
+                <span class="step-number">03</span>
+                <h3>Instale no Linux</h3>
+                <p>Baixe a versão preparada e siga as instruções do projeto.</p>
+            </article>
+        </div>
+    </section>
 </main>
-
 
 <footer>
     <div class="footer-content">
@@ -119,11 +101,8 @@
         <p class="footer-note">Os créditos das traduções pertencem aos seus respectivos autores e tradutores.</p>
         <p class="footer-copy">Linux Traduções © 2026</p>
     </div>
-
 </footer>
 
-
 <script src="js/script.js"></script>
-
 </body>
 </html>
