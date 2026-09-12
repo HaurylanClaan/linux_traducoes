@@ -2,7 +2,7 @@
 
 > Porte e adaptação de traduções de jogos de PC para Linux.
 
-O **Linux Traduções** é um projeto criado para facilitar o uso de traduções de jogos no ambiente Linux. A proposta é organizar informações, créditos e pacotes de tradução em um catálogo simples, leve e compatível com GitHub Pages.
+O **Linux Traduções** é um projeto criado para facilitar o uso de traduções de jogos no ambiente Linux. A proposta é organizar informações, créditos e pacotes de tradução em um catálogo simples.
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-69d38a?style=flat-square)
 ![Plataforma](https://img.shields.io/badge/plataforma-Linux-69d38a?style=flat-square)
@@ -16,18 +16,17 @@ O site é estático e apresenta as traduções disponíveis, seus requisitos, ve
 ## O que este projeto faz
 
 - Organiza informações sobre traduções de jogos de PC.
-- Realiza o porte e a adaptação de traduções existentes para Linux.
+- Realiza o porte e a adaptação de traduções existentes do windons para o Linux.
 - Facilita a consulta de versões, compatibilidade e instruções.
 - Pode disponibilizar pacotes em formatos adequados ao Linux, como AppImage, quando aplicável.
-- Mantém os dados separados da interface usando JSON.
 
-As traduções originais são feitas por seus respectivos tradutores, autores e equipes. O Linux Traduções realiza apenas o porte/adaptação para Linux e não reivindica autoria sobre essas traduções.
+As traduções originais são feitas por seus respectivos tradutores, autores e equipes. A Linux Traduções realiza apenas o porte/adaptação para Linux e não reivindica autoria sobre essas traduções.
 
 ## Créditos
 
 Os créditos das traduções originais pertencem integralmente aos seus respectivos tradutores, autores e equipes.
 
-O Linux Traduções realiza apenas o porte/adaptação para Linux e não reivindica autoria sobre as traduções originais. Cada página deve preservar os créditos, licenças e permissões aplicáveis ao projeto correspondente.
+A Linux Traduções realiza apenas o porte/adaptação para Linux e não reivindica autoria sobre as traduções originais.
 
 ## Aviso sobre os jogos
 
@@ -61,7 +60,7 @@ As informações dos jogos ficam em `dados/jogos.json`. A página inicial e `jog
 - GitHub Pages
 - GitHub Releases para pacotes
 
-Não há backend, banco de dados ou frameworks externos. A estrutura foi pensada para ser simples, rápida e fácil de manter. (sou pobre)
+Não há backend, banco de dados ou frameworks externos. A estrutura foi pensada para ser simples, rápida e fácil de manter. <!-- sou pobre -->
 
 ## Contribuição
 
@@ -74,6 +73,8 @@ Contribuições são bem-vindas, especialmente para:
 - revisão de informações sobre traduções;
 - confirmação de créditos, licenças e permissões.
 
+<!-- me ajudaaa so quero facilitar os jogos para o linux -->
+ 
 Ao contribuir, preserve os créditos dos autores originais e não envie jogos completos ou arquivos proprietários sem autorização.
 
 ## Licença
