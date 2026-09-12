@@ -111,7 +111,7 @@ function renderizarJogo(jogo) {
         ["Versão", jogo.versao],
         ["Tamanho", jogo.tamanho],
         ["Formato", jogo.formato],
-        ["Linux", jogo.linux === true ? "Compatível" : "Não informado"],
+        ["Funcional?", jogo.linux === true ? "Sim" : "Quebrado"],
         ["Steam Deck", jogo.steamDeck === true ? "Compatível" : "Não informado"],
         ["Atualização", jogo.dataAtualizacao],
         ["Status", jogo.status]
