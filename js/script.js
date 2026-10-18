@@ -48,9 +48,7 @@ function construirTags(jogo) {
     const tags = [];
 
     if (texto(jogo.idioma)) tags.push(`🇧🇷 ${jogo.idioma}`);
-    if (jogo.linux === true) tags.push("🐧 Linux");
     if (jogo.steamDeck === true) tags.push("🎮 Steam Deck");
-    if (texto(jogo.formato)) tags.push(`📦 ${jogo.formato}`);
     if (texto(jogo.status)) tags.push(`✅ ${jogo.status}`);
 
     return tags;

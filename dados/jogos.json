@@ -41,13 +41,30 @@
     "versao": "1.0.0",
     "formato": "AppImage",
     "tamanho": "",
-    "linux": true,
+    "linux": false,
     "steamDeck": false,
     "dataAtualizacao": "2026-10-18",
-    "status": "Em testes",
+    "status": "Em produção",
     "informacoes": "Link Steam: https://store.steampowered.com/app/1289310/Helltaker/\n\nPara executar a traducão do Helltaker, rode o app image como programa para realizar a instalação.",
     "download": "",
     "capa": "img/jogos/helltaker.jpg",
+    "tags": ["🇧🇷 PT-BR", "🎮 Steam"]
+  },
+  {
+    "nome": "Final Fantasy VII",
+    "slug": "Final-Fantasy-VII",
+    "descricao": "A icônica obra-prima FINAL FANTASY VII, venerada até hoje por legiões de fãs, chega ao Steam® com recursos adicionais! Batalhe pelo destino do planeta no retorno dessa aventura épica!",
+    "idioma": "Português-Brasil",
+    "versao": "1.0.0",
+    "formato": "AppImage",
+    "tamanho": "",
+    "linux": false,
+    "steamDeck": false,
+    "dataAtualizacao": "2026-10-18",
+    "status": "Em produção",
+    "informacoes": "Link Steam: https://store.steampowered.com/app/3837340/FINAL_FANTASY_VII/\n\nPara executar a traducão do Final Fantasy VII, rode o app image como programa para realizar a instalação.",
+    "download": "",
+    "capa": "img/jogos/ff7.jpg",
     "tags": ["🇧🇷 PT-BR", "🎮 Steam"]
   }
 ]
