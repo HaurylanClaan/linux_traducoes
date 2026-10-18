@@ -1,55 +1,100 @@
 const search = document.getElementById("search");
 const gameGrid = document.getElementById("gameGrid");
+const placeholderCapa = "img/jogos/cover-placeholder.svg";
+
+function texto(valor, fallback = "") {
+    return typeof valor === "string" && valor.trim() ? valor : fallback;
+}
+
+function capaSegura(capa) {
+    if (!capa) return placeholderCapa;
+
+    try {
+        const url = new URL(capa, window.location.href);
+
+        return url.origin === window.location.origin &&
+            /^\/(?:[^/]+\/)?img\/jogos\/[\w.-]+\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(url.pathname)
+            ? url.href
+            : placeholderCapa;
+    } catch {
+        return placeholderCapa;
+    }
+}
+
+function adicionarTexto(pai, tag, valor, classe) {
+    const elemento = document.createElement(tag);
+
+    if (classe) elemento.className = classe;
+
+    elemento.textContent = valor;
+    pai.appendChild(elemento);
+
+    return elemento;
+}
 
 function construirTags(jogo) {
     const tags = [];
 
-    if (jogo.idioma) tags.push(`🇧🇷 ${jogo.idioma}`);
-    if (jogo.linux) tags.push("🐧 Linux");
-    if (jogo.steamDeck) tags.push("🎮 Steam Deck");
-    if (jogo.formato) tags.push(`📦 ${jogo.formato}`);
-    if (jogo.status) tags.push(`✅ ${jogo.status}`);
+    if (texto(jogo.idioma)) tags.push(`🇧🇷 ${jogo.idioma}`);
+    if (jogo.linux === true) tags.push("🐧 Linux");
+    if (jogo.steamDeck === true) tags.push("🎮 Steam Deck");
+    if (texto(jogo.formato)) tags.push(`📦 ${jogo.formato}`);
+    if (texto(jogo.status)) tags.push(`✅ ${jogo.status}`);
 
-    return tags
-        .map((tag) => `<span class="tag">${tag}</span>`)
-        .join("");
+    return tags;
 }
 
 function criarCard(jogo) {
     const card = document.createElement("article");
     card.className = "game-card";
-    card.dataset.name = (jogo.nome || "").toLowerCase();
 
-    const capa = jogo.capa || "img/jogos/cover-placeholder.svg";
-    const slug = encodeURIComponent(jogo.slug || "");
-    const linkDetalhes = `jogos/jogo.html?slug=${slug}`;
+    const nome = texto(jogo.nome, "Jogo sem nome");
+    card.dataset.name = nome.toLocaleLowerCase("pt-BR");
 
-    card.innerHTML = `
-        <img
-            class="game-cover"
-            src="${capa}"
-            alt="Capa de ${jogo.nome || "jogo"}"
-            onerror="this.onerror=null;this.src='img/jogos/cover-placeholder.svg';"
-        >
+    const imagem = document.createElement("img");
+    imagem.className = "game-cover";
+    imagem.src = capaSegura(texto(jogo.capa));
+    imagem.alt = `Capa de ${nome}`;
+    imagem.addEventListener("error", () => {
+        imagem.src = placeholderCapa;
+    }, { once: true });
 
-        <div class="game-content">
-            <p class="game-label">${jogo.idioma || "Português-Brasil"}</p>
-            <h3>${jogo.nome || "Jogo sem nome"}</h3>
-            <p class="game-description">${jogo.descricao || "Descrição em breve."}</p>
+    card.appendChild(imagem);
 
-            <div class="meta-list">
-                <span class="meta-item">Versão: ${jogo.versao || "1.0.0"}</span>
-                <span class="meta-item">Tamanho: ${jogo.tamanho || "N/D"}</span>
-                <span class="meta-item">Formato: ${jogo.formato || "AppImage"}</span>
-            </div>
+    const conteudo = document.createElement("div");
+    conteudo.className = "game-content";
 
-            <div class="tag-list">${construirTags(jogo)}</div>
+    adicionarTexto(conteudo, "p", texto(jogo.idioma, "Português-Brasil"), "game-label");
+    adicionarTexto(conteudo, "h3", nome);
+    adicionarTexto(conteudo, "p", texto(jogo.descricao, "Descrição em breve."), "game-description");
 
-            <a class="download" href="${linkDetalhes}">
-                Ver tradução
-            </a>
-        </div>
-    `;
+    const meta = document.createElement("div");
+    meta.className = "meta-list";
+
+    [
+        `Versão: ${texto(jogo.versao, "1.0.0")}`,
+        `Tamanho: ${texto(jogo.tamanho, "N/D")}`,
+        `Formato: ${texto(jogo.formato, "AppImage")}`
+    ].forEach((item) => adicionarTexto(meta, "span", item, "meta-item"));
+
+    conteudo.appendChild(meta);
+
+    const listaTags = document.createElement("div");
+    listaTags.className = "tag-list";
+
+    construirTags(jogo).forEach((tag) => {
+        adicionarTexto(listaTags, "span", tag, "tag");
+    });
+
+    conteudo.appendChild(listaTags);
+
+    const link = document.createElement("a");
+    link.className = "download";
+    link.href = `jogos/jogo.html?slug=${encodeURIComponent(texto(jogo.slug))}`;
+    link.textContent = "Ver tradução";
+
+    conteudo.appendChild(link);
+    card.appendChild(conteudo);
 
     return card;
 }
@@ -58,7 +103,9 @@ async function carregarJogos() {
     if (!gameGrid) return;
 
     try {
-        const response = await fetch("./dados/jogos.json");
+        const response = await fetch("./dados/jogos.json", {
+            credentials: "same-origin"
+        });
 
         if (!response.ok) {
             throw new Error(`Erro ao carregar dados: ${response.status}`);
@@ -66,28 +113,37 @@ async function carregarJogos() {
 
         const jogos = await response.json();
 
+        gameGrid.replaceChildren();
+
         if (!Array.isArray(jogos) || jogos.length === 0) {
-            gameGrid.innerHTML = "<p class='empty-state'>Nenhum jogo disponível no momento.</p>";
+            adicionarTexto(gameGrid, "p", "Nenhum jogo disponível no momento.", "empty-state");
             return;
         }
 
-        gameGrid.innerHTML = "";
-        jogos.forEach((jogo) => gameGrid.appendChild(criarCard(jogo)));
+        jogos.forEach((jogo) => {
+            if (jogo && typeof jogo === "object") {
+                gameGrid.appendChild(criarCard(jogo));
+            }
+        });
     } catch (error) {
         console.error("Erro ao carregar jogos:", error);
-        gameGrid.innerHTML = "<p class='empty-state'>Não foi possível carregar os jogos no momento. Tente novamente mais tarde.</p>";
+        gameGrid.replaceChildren();
+
+        adicionarTexto(
+            gameGrid,
+            "p",
+            "Não foi possível carregar os jogos no momento. Tente novamente mais tarde.",
+            "empty-state"
+        );
     }
 }
 
 if (search) {
-    search.addEventListener("input", function () {
-        const texto = search.value.toLowerCase();
-        const cards = document.querySelectorAll(".game-card");
+    search.addEventListener("input", () => {
+        const consulta = search.value.toLocaleLowerCase("pt-BR");
 
-        cards.forEach(function (card) {
-            const nome = card.dataset.name || "";
-            const corresponde = nome.includes(texto);
-            card.style.display = corresponde ? "" : "none";
+        document.querySelectorAll(".game-card").forEach((card) => {
+            card.hidden = !card.dataset.name.includes(consulta);
         });
     });
 }
