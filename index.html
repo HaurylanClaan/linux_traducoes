@@ -36,8 +36,7 @@
 
         <nav>
             <a class="active" href="index.html">Início</a>
-            <a href="#jogos">Traduções</a>
-            <a href="#sobre">Sobre</a>
+            <a href="sobre.html">Sobre</a>
             <a href="https://github.com/HaurylanClaan/linux_traducoes" target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
     </div>
@@ -49,9 +48,10 @@
         <p>Traduções de jogos de PC portadas para o Linux.</p>
 
         <input
-            type="text"
+            type="search"
             class="search"
             id="search"
+            aria-label="Pesquisar traduções por jogo ou característica"
             placeholder="🔎 Pesquisar jogo..."
         >
     </section>
@@ -59,53 +59,10 @@
     <section class="games" id="jogos">
         <h2>Traduções disponíveis</h2>
         <div class="game-grid" id="gameGrid" aria-live="polite"></div>
+        <p class="empty-state" id="noResults" hidden>Nenhum jogo encontrado.</p>
+        <nav class="pagination" id="pagination" aria-label="Páginas de traduções"></nav>
     </section>
 
-    <section class="games" id="sobre">
-        <p class="eyebrow">SOBRE O PROJETO</p>
-        <h2>Sobre o projeto</h2>
-
-        <p class="section-copy">
-            O Linux Traduções é um projeto dedicado a portar e adaptar traduções de jogos de PC para o ambiente Linux, principalmente para jogos originais da Steam.
-            O objetivo é facilitar o acesso da comunidade Linux a traduções originalmente desenvolvidas para outras plataformas.
-            Aqui são disponibilizados apenas arquivos e pacotes relacionados à tradução, respeitando os direitos, créditos e permissões aplicáveis a cada projeto.
-        </p>
-    </section>
-
-    <section class="info-section" id="creditos">
-        <div class="credit-panel">
-            <p class="eyebrow">TRANSPARÊNCIA</p>
-            <p>
-                Eu apenas porto e adapto traduções existentes para Linux.
-                Todo crédito pela tradução original pertence aos seus respectivos tradutores, autores e equipes.
-            </p>
-        </div>
-    </section>
-
-    <section class="info-section" id="como-funciona">
-        <div class="section-heading">
-            <p class="eyebrow">GUIA RÁPIDO</p>
-            <h2>Como funciona</h2>
-        </div>
-
-        <div class="steps-grid">
-            <article class="step-card">
-                <span class="step-number">01</span>
-                <h3>Escolha uma tradução</h3>
-                <p>Encontre no catálogo o jogo que você procura.</p>
-            </article>
-            <article class="step-card">
-                <span class="step-number">02</span>
-                <h3>Confira os detalhes</h3>
-                <p>Veja informações de compatibilidade, versão e créditos.</p>
-            </article>
-            <article class="step-card">
-                <span class="step-number">03</span>
-                <h3>Instale no Linux</h3>
-                <p>Baixe a versão preparada e siga as instruções do projeto.</p>
-            </article>
-        </div>
-    </section>
 </main>
 
 <footer>

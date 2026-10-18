@@ -163,6 +163,37 @@ nav a.active::after {
     gap: 20px;
 }
 
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.pagination[hidden] {
+    display: none;
+}
+
+.page-button {
+    min-width: 40px;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    cursor: pointer;
+}
+
+.page-button:hover,
+.page-button.active {
+    border-color: var(--green);
+    background: var(--green);
+    color: #08100b;
+}
+
 .game-card {
     display: flex;
     flex-direction: column;
@@ -172,6 +203,11 @@ nav a.active::after {
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.2s, border-color 0.2s;
+}
+
+.game-card[hidden],
+.empty-state[hidden] {
+    display: none !important;
 }
 
 .game-card:hover {

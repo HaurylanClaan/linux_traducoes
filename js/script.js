@@ -1,6 +1,17 @@
 const search = document.getElementById("search");
 const gameGrid = document.getElementById("gameGrid");
+const noResults = document.getElementById("noResults");
+const pagination = document.getElementById("pagination");
 const placeholderCapa = "img/jogos/cover-placeholder.svg";
+const jogosPorPagina = 10;
+let paginaAtual = 1;
+
+function normalizarBusca(valor) {
+    return valor
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("pt-BR");
+}
 
 function texto(valor, fallback = "") {
     return typeof valor === "string" && valor.trim() ? valor : fallback;
@@ -50,7 +61,16 @@ function criarCard(jogo) {
     card.className = "game-card";
 
     const nome = texto(jogo.nome, "Jogo sem nome");
-    card.dataset.name = nome.toLocaleLowerCase("pt-BR");
+    card.dataset.search = normalizarBusca([
+        nome,
+        texto(jogo.descricao),
+        texto(jogo.idioma),
+        texto(jogo.versao),
+        texto(jogo.formato),
+        texto(jogo.tamanho),
+        texto(jogo.status),
+        ...(Array.isArray(jogo.tags) ? jogo.tags.filter((tag) => typeof tag === "string") : [])
+    ].join(" "));
 
     const imagem = document.createElement("img");
     imagem.className = "game-cover";
@@ -126,6 +146,8 @@ async function carregarJogos() {
                 gameGrid.appendChild(criarCard(jogo));
             }
         });
+
+        aplicarBusca();
     } catch (error) {
         console.error("Erro ao carregar jogos:", error);
         gameGrid.replaceChildren();
@@ -139,13 +161,58 @@ async function carregarJogos() {
     }
 }
 
+function aplicarBusca() {
+    if (!search || !gameGrid) return;
+
+    const consulta = normalizarBusca(search.value.trim());
+    const cards = [...gameGrid.querySelectorAll(".game-card")];
+    const filtrados = cards.filter((card) => card.dataset.search.includes(consulta));
+    const totalPaginas = Math.ceil(filtrados.length / jogosPorPagina);
+
+    if (totalPaginas > 0 && paginaAtual > totalPaginas) paginaAtual = totalPaginas;
+
+    const inicio = (paginaAtual - 1) * jogosPorPagina;
+    const visiveis = new Set(filtrados.slice(inicio, inicio + jogosPorPagina));
+
+    cards.forEach((card) => {
+        card.hidden = !visiveis.has(card);
+    });
+
+    if (noResults) noResults.hidden = filtrados.length > 0;
+    renderizarPaginacao(totalPaginas);
+}
+
+function renderizarPaginacao(totalPaginas) {
+    if (!pagination) return;
+
+    pagination.replaceChildren();
+    pagination.hidden = totalPaginas <= 1;
+
+    for (let numero = 1; numero <= totalPaginas; numero += 1) {
+        const botao = document.createElement("button");
+        botao.type = "button";
+        botao.className = "page-button";
+        botao.textContent = String(numero);
+        botao.setAttribute("aria-label", `Página ${numero}`);
+
+        if (numero === paginaAtual) {
+            botao.classList.add("active");
+            botao.setAttribute("aria-current", "page");
+        }
+
+        botao.addEventListener("click", () => {
+            paginaAtual = numero;
+            aplicarBusca();
+        });
+
+        pagination.appendChild(botao);
+    }
+}
+
 if (search) {
     search.addEventListener("input", () => {
-        const consulta = search.value.toLocaleLowerCase("pt-BR");
-
-        document.querySelectorAll(".game-card").forEach((card) => {
-            card.hidden = !card.dataset.name.includes(consulta);
-        });
+        paginaAtual = 1;
+        aplicarBusca();
     });
 }
 
