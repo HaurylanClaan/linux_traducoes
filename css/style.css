@@ -164,6 +164,9 @@ nav a.active::after {
 }
 
 .game-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 10px;
@@ -187,6 +190,9 @@ nav a.active::after {
 }
 
 .game-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     padding: 20px;
 }
 
@@ -207,6 +213,7 @@ nav a.active::after {
     color: var(--muted);
     line-height: 1.5;
     margin-bottom: 18px;
+    flex: 1;
 }
 
 .meta-list {
@@ -242,6 +249,7 @@ nav a.active::after {
 
 .download {
     display: block;
+    margin-top: auto;
     text-align: center;
     background: var(--green);
     color: #08100b;
@@ -394,6 +402,13 @@ nav a.active::after {
 .message-panel p {
     color: var(--muted);
     line-height: 1.7;
+    white-space: pre-line;
+}
+
+.translation-info a {
+    color: var(--green-bright);
+    text-decoration: underline;
+    word-break: break-word;
 }
 
 .detail-download {

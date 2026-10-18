@@ -9,10 +9,11 @@ function capaSegura(capa) {
     if (!capa) return placeholderCapa;
 
     try {
-        const url = new URL(`../${capa}`, window.location.href);
+        const caminhoNormalizado = String(capa).trim().replace(/^\/+/, "");
+        const url = new URL(`../${caminhoNormalizado}`, window.location.href);
 
         return url.origin === window.location.origin &&
-            /^\/(?:[^/]+\/)?img\/jogos\/[\w.-]+\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(url.pathname)
+            /^\/(?:[^/]+\/)?img\/jogos\/[^/]+\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(url.pathname)
             ? url.href
             : placeholderCapa;
     } catch {
@@ -71,6 +72,37 @@ function renderizarErro(mensagem) {
     gamePage.appendChild(secao);
 }
 
+function criarParagrafoInformacoes(textoInformacoes) {
+    const p = document.createElement("p");
+    const informacoes = texto(textoInformacoes, "Informações em breve.");
+    const matchSteam = informacoes.match(/Link Steam:\s*(https?:\/\/[^\s]+)/i);
+
+    if (!matchSteam) {
+        p.textContent = informacoes;
+        return p;
+    }
+
+    const label = document.createElement("span");
+    label.textContent = "Link Steam: ";
+    p.appendChild(label);
+
+    const linkSteam = document.createElement("a");
+    linkSteam.href = matchSteam[1];
+    linkSteam.target = "_blank";
+    linkSteam.rel = "noopener noreferrer";
+    linkSteam.textContent = matchSteam[1];
+    p.appendChild(linkSteam);
+
+    const restante = informacoes.slice(matchSteam.index + matchSteam[0].length).trim();
+    if (restante) {
+        p.appendChild(document.createElement("br"));
+        const textoRestante = document.createTextNode(restante);
+        p.appendChild(textoRestante);
+    }
+
+    return p;
+}
+
 function renderizarJogo(jogo) {
     gamePage.replaceChildren();
 
@@ -125,7 +157,7 @@ function renderizarJogo(jogo) {
     info.className = "translation-info";
 
     adicionarTexto(info, "h2", "Informações da tradução");
-    adicionarTexto(info, "p", texto(jogo.informacoes, "Informações em breve."));
+    info.appendChild(criarParagrafoInformacoes(jogo.informacoes));
 
     conteudo.appendChild(info);
 
@@ -134,7 +166,7 @@ function renderizarJogo(jogo) {
     download.href = downloadSeguro(texto(jogo.download, ""));
     download.target = "_blank";
     download.rel = "noopener noreferrer";
-    download.textContent = "Baixar AppImage";
+    download.textContent = "Baixar Tradução";
 
     if (download.href.endsWith("#")) {
         download.setAttribute("aria-disabled", "true");

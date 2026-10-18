@@ -11,9 +11,9 @@
     "steamDeck": false,
     "dataAtualizacao": "2026-09-08",
     "status": "Em testes",
-    "informacoes": "Para realizar a tradução do jogo Chrono Trigger: Rode o app image como um programa para realizar a instalação.",
+    "informacoes": "Link Steam: https://store.steampowered.com/app/613830/CHRONO_TRIGGER/\n\nPara realizar a tradução do jogo Chrono Trigger: Rode o app image como um programa para realizar a instalação.",
     "download": "https://github.com/HaurylanClaan/linux_traducoes/releases/download/v1.0.0/Chrono_Trigger_Traducao_PTBR.AppImage",
-    "capa": "img/jogos/chrono_trigger.webp",
+    "capa": "img/jogos/chrono.jpg",
     "tags": ["🇧🇷 PT-BR", "🎮 Steam"]
   },
   {
@@ -28,9 +28,26 @@
     "steamDeck": false,
     "dataAtualizacao": "2026-09-10",
     "status": "Em testes",
-    "informacoes": "Para executar a tradução do Fear & Hunger 2: Termina, rode o app image como programa para realizar a instalação.",
+    "informacoes": "Link Steam: https://store.steampowered.com/app/2171440/Fear__Hunger_2_Termina/\n\nPara executar a tradução do Fear & Hunger 2: Termina, rode o app image como programa para realizar a instalação.",
     "download": "https://github.com/HaurylanClaan/linux_traducoes/releases/download/fear-and-hunger-termina-v1.0.0/FH2_Termina_Traducao_PTBR.AppImage",
-    "capa": "img/jogos/IXD3OG.png",
+    "capa": "img/jogos/termina.jpg",
+    "tags": ["🇧🇷 PT-BR", "🎮 Steam"]
+  },
+  {
+    "nome": "Helltaker",
+    "slug": "Helltaker",
+    "descricao": "Você acordou um dia com um sonho: um harém repleto de garotas-demônio. Você abriu o portal na esperança de realizar seus desejos mais ousados. O fogo do inferno queima seus pulmões, a morte espreita em cada esquina e tudo parece ter saído de um joguinho fofo para celular. Você está no inferno.",
+    "idioma": "Português-Brasil",
+    "versao": "1.0.0",
+    "formato": "AppImage",
+    "tamanho": "",
+    "linux": true,
+    "steamDeck": false,
+    "dataAtualizacao": "2026-10-18",
+    "status": "Em testes",
+    "informacoes": "Link Steam: https://store.steampowered.com/app/1289310/Helltaker/\n\nPara executar a traducão do Helltaker, rode o app image como programa para realizar a instalação.",
+    "download": "",
+    "capa": "img/jogos/helltaker.jpg",
     "tags": ["🇧🇷 PT-BR", "🎮 Steam"]
   }
 ]

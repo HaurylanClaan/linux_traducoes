@@ -10,10 +10,11 @@ function capaSegura(capa) {
     if (!capa) return placeholderCapa;
 
     try {
-        const url = new URL(capa, window.location.href);
+        const caminhoNormalizado = String(capa).trim().replace(/^\/+/, "");
+        const url = new URL(caminhoNormalizado, window.location.href);
 
         return url.origin === window.location.origin &&
-            /^\/(?:[^/]+\/)?img\/jogos\/[\w.-]+\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(url.pathname)
+            /^\/(?:[^/]+\/)?img\/jogos\/[^/]+\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(url.pathname)
             ? url.href
             : placeholderCapa;
     } catch {
